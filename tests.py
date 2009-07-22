@@ -1,9 +1,12 @@
 """
 >>> from django.test import Client
->>> from basic.people.models import Person, Quote, PersonType
+>>> from thespians.models import Person
+>>> from django.contrib.auth.models import User
 
 >>> c = Client()
->>> p = Person.objects.create(first_name='Nathan', last_name='Borror', slug='nathan-borror')
+>>> u = User(first_name="Nathan", last_name="Borror", email="nathan@borrorblows.com")
+>>> u.save()
+>>> p = Person.objects.create(slug='nathan-borror', user=u)
 
 >>> r = c.get('/people/')
 >>> r.status_code
