@@ -14,7 +14,7 @@ class Person(models.Model):
     last_name         = models.CharField(_('last name'), blank=True, max_length=100)
     slug           = models.SlugField(_('slug'), unique=True)
     user           = models.ForeignKey(User, blank=True, null=True)
-    mugshot        = models.FileField(_('mugshot'), upload_to='mugshots', blank=True)
+    mugshot        = models.ImageField(_('mugshot'), upload_to='mugshots', blank=True, null=True)
     mugshot_credit = models.CharField(_('mugshot credit'), blank=True, max_length=200)
     role = models.ForeignKey('Role', unique=True)
     bio = models.TextField(blank=True)
