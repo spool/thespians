@@ -9,16 +9,17 @@ import dateutil
 
 class Person(models.Model):
     """Person model."""
-    first_name        = models.CharField(_('first name'), blank=True, max_length=100)
-    middle_name       = models.CharField(_('middle name'), blank=True, max_length=100)
-    last_name         = models.CharField(_('last name'), blank=True, max_length=100)
-    slug           = models.SlugField(_('slug'), unique=True)
-    user           = models.ForeignKey(User, blank=True, null=True)
-    mugshot        = models.ImageField(_('mugshot'), upload_to='mugshots', blank=True, null=True)
-    mugshot_credit = models.CharField(_('mugshot credit'), blank=True, max_length=200)
-    role = models.ForeignKey('Role', unique=True)
-    bio = models.TextField(blank=True)
-    website        = models.URLField(_('website'), blank=True, verify_exists=True)
+    first_name   = models.CharField(_('first name'), blank=True, max_length=100)
+    middle_name  = models.CharField(_('middle name'), blank=True, max_length=100)
+    last_name    = models.CharField(_('last name'), blank=True, max_length=100)
+    slug         = models.SlugField(_('slug'), unique=True)
+    user         = models.ForeignKey(User, blank=True, null=True)
+    photo        = models.ImageField(_('photo'), upload_to='photos',
+                                        blank=True, null=True)
+    photo_credit = models.CharField(_('photo credit'), blank=True, max_length=200)
+    role         = models.ForeignKey('Role', unique=True)
+    bio          = models.TextField(blank=True)
+    website      = models.URLField(_('website'), blank=True, verify_exists=True)
 
     class Meta:
         verbose_name = _('person')
