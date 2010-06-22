@@ -32,7 +32,10 @@ class Person(models.Model):
 
     @property
     def full_name(self):
-        return u'%s %s' % (self.first_name, self.last_name)
+        if self.middle_name:
+            return u'%s %s %s' % (self.first_name, self.middle_name, self.last_name)
+        else:
+            return u'%s %s' % (self.first_name, self.last_name)
 
     @permalink
     def get_absolute_url(self):
