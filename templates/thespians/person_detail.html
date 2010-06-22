@@ -10,9 +10,11 @@
       <li class="position">{{ object.role.position }}</li>
       <li class="description">{{ object.role.description }}</li>
   </ol>
+  {% if object.photo %}
   <div class="headshot">
       <img src="{{ object.photo.url }}" alt="Profile Picture" width="150px" />
   </div>
+  {% endif %}
   <div class="bio">{{ object.bio|linebreaks }}</div>
 {% endblock %}
 

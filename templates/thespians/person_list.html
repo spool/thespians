@@ -7,11 +7,13 @@
 {% block content %}
   <div class="link_list profiles">
   {% for person in object_list %}
-    <div class="photo">
-        <a href="{{ person.get_absolute_url }}">
-            <img src="{{ person.photo.url }}" alt="Profile Picture" height="100px" />
-        </a>
-    </div>
+      {% if object.photo %}
+        <div class="photo">
+            <a href="{{ person.get_absolute_url }}">
+                <img src="{{ person.photo.url }}" alt="Profile Picture" height="100px" />
+            </a>
+        </div>
+      {% endif %}
     <h3><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></h3>
     <p class="role">{{ person.role.position }}: {{ person.role.description }}</p>
   {% endfor %}
