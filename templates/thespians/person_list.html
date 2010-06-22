@@ -5,8 +5,8 @@
 
 
 {% block content %}
-  <div class="link_list profiles">
   {% for person in object_list %}
+    <div class="profiles">
       {% if person.photo %}
         <div class="photo">
             <a href="{{ person.get_absolute_url }}">
@@ -16,6 +16,6 @@
       {% endif %}
     <h3><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></h3>
     <p class="role">{{ person.role.position }}: {{ person.role.description }}</p>
+    </div>
   {% endfor %}
-  </div>
 {% endblock %}
