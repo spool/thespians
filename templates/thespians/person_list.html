@@ -1,18 +1,19 @@
 {% extends "thespians/base_people.html" %}
 
 
-{% block title %}People{% endblock %}
-
-
-{% block content_title %}
-  <h2>People</h2>
-{% endblock %}
+{% block title %}Cast and Crew{% endblock %}
 
 
 {% block content %}
-  <ul class="link_list">
+  <div class="link_list profiles">
   {% for person in object_list %}
-    <li><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></li>
+    <div class="photo">
+        <a href="{{ person.get_absolute_url }}">
+            <img src="{{ person.photo.url }}" alt="Profile Picture" height="100px" />
+        </a>
+    </div>
+    <h3><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></h3>
+    <p class="role">{{ person.role.position }}: {{ person.role.description }}</p>
   {% endfor %}
-  </ul>
+  </div>
 {% endblock %}
