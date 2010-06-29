@@ -1,4 +1,5 @@
 {% extends "thespians/base_people.html" %}
+{% load typogrify %}
 
 
 {% block title %}Cast and Crew{% endblock %}
@@ -15,7 +16,10 @@
         </div>
       {% endif %}
     <h3><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></h3>
-    <p class="role">{{ person.role.position }}: {{ person.role.description }}</p>
+      <dl class="role">
+          <dt class="position">{{ person.role.position }}</dt>
+          <dd class="description">{{ person.role.description }}</dd>
+      </dl>
     </div>
   {% endfor %}
 {% endblock %}

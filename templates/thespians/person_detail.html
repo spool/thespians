@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-
+{% load typogrify %}
 
 {% block title %}{{ object.full_name }}{% endblock %}
 
 
 {% block content %}
-  <h2>{{ object.full_name }}</h2>
+  <h2>{{ object.full_name|widont }}</h2>
   {% if object.photo %}
   <div class="headshot">
       <img src="{{ object.photo.url }}" alt="Profile Picture" width="150px" />
@@ -13,9 +13,9 @@
   {% endif %}
   <dl class="role">
       <dt class="position">{{ object.role.position }}</dt>
-      <dd class="description">{{ object.role.description }}</dd>
+      <dd class="description">{{ object.role.description|typogrify }}</dd>
   </dl>
-  <div class="bio">{{ object.bio|linebreaks }}</div>
+  <div class="bio">{{ object.bio|linebreaks|typogrify }}</div>
 {% endblock %}
 
 
