@@ -6,15 +6,15 @@
 
 {% block content %}
   <h2>{{ object.full_name }}</h2>
-  <ol class="role">
-      <li class="position">{{ object.role.position }}</li>
-      <li class="description">{{ object.role.description }}</li>
-  </ol>
   {% if object.photo %}
   <div class="headshot">
       <img src="{{ object.photo.url }}" alt="Profile Picture" width="150px" />
   </div>
   {% endif %}
+  <dl class="role">
+      <dt class="position">{{ object.role.position }}</dt>
+      <dd class="description">{{ object.role.description }}</dd>
+  </dl>
   <div class="bio">{{ object.bio|linebreaks }}</div>
 {% endblock %}
 
