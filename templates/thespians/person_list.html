@@ -2,7 +2,7 @@
 {% load typogrify %}
 
 
-{% block title %}Cast and Crew{% endblock %}
+{% block title %}Production Team{% endblock %}
 
 
 {% block content %}
@@ -15,7 +15,7 @@
             </a>
         </div>
       {% endif %}
-    <h3><a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a></h3>
+    <h3><a href="mailto:{{ person.email }}">{{ person.full_name }}</a></h3>
       <dl class="role">
           <dt class="position">{{ person.role.position }}</dt>
           <dd class="description">{{ person.role.description }}</dd>

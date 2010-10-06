@@ -19,6 +19,7 @@ class Person(models.Model):
     photo_credit = models.CharField(_('photo credit'), blank=True, max_length=200)
     role         = models.ForeignKey('Role', unique=True)
     bio          = models.TextField(blank=True)
+    email        = models.EmailField(_('email address'), blank=True, null=True)
     website      = models.URLField(_('website'), blank=True, verify_exists=True)
 
     class Meta:
