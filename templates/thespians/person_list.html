@@ -15,7 +15,13 @@
             </a>
         </div>
       {% endif %}
-    <h3><a href="mailto:{{ person.email }}">{{ person.full_name }}</a></h3>
+      <h3>
+          {% if person.email %}
+          <a href="mailto:{{ person.email }}">{{ person.full_name }}</a>
+          {% else %}
+          {{ person.full_name }}
+          {% endif %}
+      </h3>
       <dl class="role">
           <dt class="position">{{ person.role.position }}</dt>
           <dd class="description">{{ person.role.description }}</dd>
