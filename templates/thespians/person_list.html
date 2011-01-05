@@ -16,11 +16,7 @@
         </div>
       {% endif %}
       <h3>
-          {% if person.email %}
-          <a href="mailto:{{ person.email }}">{{ person.full_name }}</a>
-          {% else %}
-          {{ person.full_name }}
-          {% endif %}
+          <a href="{{ person.get_absolute_url }}">{{ person.full_name }}</a>
       </h3>
       <dl class="role">
           <dt class="position">{{ person.role.position }}</dt>
