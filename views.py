@@ -13,7 +13,7 @@ def person_detail(request, slug, **kwargs):
 person_detail.__doc__ = list_detail.object_detail.__doc__
 
 
-def person_list(request, paginate_by=20, **kwargs):
+def person_list(request, paginate_by=100, **kwargs):
     return list_detail.object_list(
         request,
         queryset = Person.objects.all().order_by('last_name'),
